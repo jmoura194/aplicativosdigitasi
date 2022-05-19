@@ -1,0 +1,5 @@
+shift + alt + F   ----> identação
+
+shift + alt + seta pra baixo -----> copiar 
+
+shift+cnttrl + alt +seta pra baixa ---> marcar para copiar

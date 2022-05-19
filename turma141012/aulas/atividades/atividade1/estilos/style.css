@@ -1,0 +1,36 @@
+
+#atividade{
+
+margin: 50px;
+font-family:sans-serif;
+
+}
+#atividade h1 {
+ 
+padding: 0%;
+font-size: larger;
+font-weight: bold;
+line-height: 0%;
+
+
+}
+#atividade .itemlista{
+
+list-style-position: inside;
+margin: 4px;
+font-size: 15px;
+
+}
+#final {
+font-weight: bold;
+color:#fc2424;
+font-weight: bold;
+line-height: 50px;
+font-size: 15px;
+}
+#idade{
+  line-height: 0%;
+  color: #2dc7a0;
+  background-color:#d2e7ff;
+  font-size: 15px;
+}
