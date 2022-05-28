@@ -1,37 +1,31 @@
 body{
-
-
-    background-color:#d14836;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d14836;
+    font-family: Arial;
     line-height: 20px;
-}    
+}
 
 #top{
-
-  color : white;
-  padding: 15px;
-  font-size: 30px;
-  line-height: 26px;
-
+    color: white;
+    padding: 15px;
+    font-size: 30px;
+    line-height: 26px;
 }
+
 #top h1{
-    margin: 0px;
+    margin: 0;
     line-height: 50px;
-
-
 }
+
 #menubar{
-
- float: right;
-
+    float: right;
 }
+
 #main{
-
- background-color:  white;
- padding:  10px;
- font: 80% verdana;
-
+    background-color: white;
+    padding: 10px;
+    font: 80% Verdana;
 }
+
 #main h1,
 #main h2,
 #sidebar{
