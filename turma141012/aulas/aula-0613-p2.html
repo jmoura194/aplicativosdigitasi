@@ -32,10 +32,12 @@
     
         <div class="col-sm-3">
             <br>
-            <button class="btn btn-success" onclick="incluirTarefa()">Gravar</button>
-            <!-- <button class="btn" onclick="incluirTarefa()">Gravar</button> !-->
             <button class="btn" onclick="novo()">Novo</button>
             <button class="btn btn-danger" onclick="apagar()">Apagar</button>
+            <button class="btn btn-success" onclick="incluirTarefa()">Gravar</button>
+            <!-- <button class="btn" onclick="incluirTarefa()">Gravar</button> !-->
+            
+           
         </div>
      </div>
         <div class="row"> 
@@ -61,29 +63,41 @@
         </div>
     </div>
      <script>
-        let corpoTarefa='<tr><td>lavar pratos</td></tr><tr><td>estudar</td></tr><tr><td>descançar</td></tr><tr><td>revisar</td></tr>';
-        document.querySelector('tbody').innerHTML =corpoTarefa;
-        //for(i=0;i<3;i++){
-        //let j=i;
-        //document.getElementsByTagName('td')[i].addEventListener('click',function () {editar(this.innerHTML,j)});
-        //  }
-    
-        onclickNasLinhas();
+       
+     let  corpoTabela=localStorage.getItem('corpoTabela'); 
+     console.log(corpoTabela);
+       if(corpoTabela.length == 0){
+            corpoTabela = '<tr><td>Nenhuma tarefa registrada</td></tr>';
+            //localStorage.setItem('corpoTabela', corpoTabela);
+           //alert('eu');
+           localStorage.getItem('corpoTabela');
+       
+       }else{
+       document.querySelector('tbody').innerHTML = corpoTabela;
+       onclickNasLinhas();
+       }
         function incluirTarefa() {
             let linha = document.getElementById('linha').value;
             let tarefa = document.getElementById('tarefa').value;
+            if(tarefa.length < 5 ){
+               alert('a tarefa deve ter no mínimo 5 caracteres');
+               return;
+                    
+
+            }
             if (linha != '') {
                 document.getElementsByTagName('td')[linha].innerHTML = tarefa;
             } else {
                 console.log(`Nova tarefa ${tarefa}`);
                 let tbody = document.getElementsByTagName('tbody')[0];
-                corpoTarefa += `<tr><td>${tarefa}</td></tr>`;
-                tbody.innerHTML = corpoTarefa;
+                corpoTabela += `<tr><td>${tarefa}</td></tr>`;
+                tbody.innerHTML = corpoTabela;
 
             }
                         
             novo();
             onclickNasLinhas();
+            localStorage.setItem('corpoTabela',corpoTabela);
         }
     
         function editar(tarefa, linha) {
@@ -115,10 +129,10 @@
          if(confirmacao){
          linha++;
          document.querySelectorAll('tr')[linha].remove();
-         corpoTarefa = document.querySelector('tbody').innerHTML;
          onclickNasLinhas();
          novo();
-         
+         corpoTabela = document.querySelector('tbody').innerHTML;
+         localStorage.setItem('corpoTabela',corpoTabela);
 
         }else{
             novo();
