@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Tarefas!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-</head>
-<body>
-    <h1>Gerenciador de Tarefas</h1>
+    </head>
+    <body>
+        <style>
+
+        tbody{
+        cursor :pointer;
+        }
+        </style>
+       <div class="container">
   
-       <div class="row">
-    <div class="col-sm-2">
-        <div class="col-2 form-group">
+
+ <h1>Gerenciador de Tarefas</h1>
+  
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="col-2 form-group">
             <label for="">Tarefa</label>
-            <input type="text" id="linha">
-            <input text="" class="form-control" id="tarefa" value="">
+            <input type="hidden" id="linha">
+            <input text="text" class="form-control" id="tarefa" value="">
 
 
+            </div>
         </div>
-    </div>
-    <div class="col-sm-1">
+    
         <div class="col-sm-3">
             <br>
-            <button class="btn btn-success" onclick="incluirTarefa()">Incluir</button>
             <button class="btn btn-success" onclick="incluirTarefa()">Gravar</button>
+            <!-- <button class="btn" onclick="incluirTarefa()">Gravar</button> !-->
             <button class="btn" onclick="novo()">Novo</button>
+            <button class="btn btn-danger" onclick="apagar()">Apagar</button>
         </div>
-    </div>
-   <div class="row"> 
-    <div class="col-sm-6">
+     </div>
+        <div class="row"> 
+        <div class="col-sm-9">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -47,42 +57,35 @@
         </table>
 
 
+        </div>
+        </div>
     </div>
-
-
-   </div>
-<script>
-    let corpoTarefa='<tr><td>lavar pratos</td></tr><tr><td>estudar</td></tr><tr><td>descançar</td></tr><tr><td>revisar</td></tr>';
-    document.querySelector('tbody').innerHTML =corpoTarefa;
-    for(i=0;i<3;i++){
-    let j=i;
-     document.getElementsByTagName('td')[i].addEventListener('click',function () {editar(this.innerHTML,j)});
-     
-
-
-    }
+     <script>
+        let corpoTarefa='<tr><td>lavar pratos</td></tr><tr><td>estudar</td></tr><tr><td>descançar</td></tr><tr><td>revisar</td></tr>';
+        document.querySelector('tbody').innerHTML =corpoTarefa;
+        //for(i=0;i<3;i++){
+        //let j=i;
+        //document.getElementsByTagName('td')[i].addEventListener('click',function () {editar(this.innerHTML,j)});
+        //  }
     
-    
-    function incluirTarefa() {
+        onclickNasLinhas();
+        function incluirTarefa() {
             let linha = document.getElementById('linha').value;
             let tarefa = document.getElementById('tarefa').value;
-            console.log(`Nova tarefa ${tarefa}`);
-            let tbody = document.getElementsByTagName('tbody')[0];
-            corpoTabela += `<tr><td>${tarefa}</td></tr>`;
-            tbody.innerHTML = corpoTabela;
             if (linha != '') {
                 document.getElementsByTagName('td')[linha].innerHTML = tarefa;
             } else {
                 console.log(`Nova tarefa ${tarefa}`);
                 let tbody = document.getElementsByTagName('tbody')[0];
-                corpoTabela += `<tr><td>${tarefa}</td></tr>`;
-                tbody.innerHTML = corpoTabela;
+                corpoTarefa += `<tr><td>${tarefa}</td></tr>`;
+                tbody.innerHTML = corpoTarefa;
 
             }
+                        
             novo();
             onclickNasLinhas();
         }
-
+    
         function editar(tarefa, linha) {
             document.getElementById('tarefa').value = tarefa;
             document.getElementById('linha').value = linha;
@@ -100,7 +103,28 @@
             document.getElementById('tarefa').value = '';
             document.getElementById('linha').value = '';
         }
+        function apagar(){
 
-</script>
-</body>
+         let linha = document.getElementById('linha').value;
+         if(linha=='') {
+         alert('Necessário selecionar alguma tarefa');
+           return;
+         }
+         let confirmacao = confirm('Realmente deseja apagar essa tarefa');
+         ///console.log(linha);
+         if(confirmacao){
+         linha++;
+         document.querySelectorAll('tr')[linha].remove();
+         corpoTarefa = document.querySelector('tbody').innerHTML;
+         onclickNasLinhas();
+         novo();
+         
+
+        }else{
+            novo();
+
+        }
+        }
+     </script>
+    </body>
 </html>
