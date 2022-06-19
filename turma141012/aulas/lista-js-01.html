@@ -37,7 +37,7 @@
     }
 
     .questao {
-        background-color: #e0f7faa1;
+        background-color: #0ba2b6a1;
         padding: 1px 0px 10px 10px;
         margin-bottom: 10px;
         border-radius: 4px;
@@ -45,7 +45,7 @@
     }
 
     .questao:hover {
-        background-color: #e0f7fa;
+        background-color: #8adbe6;
     }
 
     input[type=button] {
@@ -66,16 +66,16 @@
             <input type="text" id="nota02">
             <label for="">Nota 03:</label>
             <input type="text" id="nota03">
-            <input type="button" onclick="questao01()" value="Calcular"/>
-            <input type="button" onclick="novo()"  value="limpar"/>
+            <input type="button" onclick="questao01()" value="Calcular" />
+            <input type="button" onclick="novo()" value="limpar" />
         </div>
         <div class="questao">
             <h1>Questão 02:<span> Senha Fixa <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1114"
                         target="_blank">detalhar</a></span></h1>
             <p id="resultado1">Resultado: xxxxx</p>
             <label for="">Digite a senha:</label>
-            <input type="password" id="senha"> 
-            <input type="button"  onclick="questao02()"  value="Acesso">
+            <input type="password" id="senha">
+            <input type="button" onclick="questao02()" value="Acesso">
         </div>
         <div class="questao">
             <h1>Questão 03:<span> Intervalo [0,25], [25,50], [50,75], [75,100] <a
@@ -84,8 +84,8 @@
             <p id="resultado2">Resultado: </p>
             <label for="">Valor:</label>
             <input type="text" id="intervalo">
-            <input type="button" onclick= "questao03()" value="Calcular">
-            
+            <input type="button" onclick="questao03()" value="Calcular">
+
         </div>
         <div class="questao">
             <h1>Questão 04:<span> Aumento de Salário <a
@@ -97,38 +97,40 @@
             <input type="button" onclick="questao4()" value="Calcular">
         </div>
         <div class="questao">
-            <h1>Questã 05:<span> Imposto de Renda <a
+            <h1>Questão 05:<span> Imposto de Renda <a
                         href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1051"
                         target="_blank">detalhar</a></span></h1>
-            <p id="">Resultado:Imposto xxxxx</p>
+            <p id="resultado4">Resultado:Imposto xxxxx</p>
             <label for="">Renda:</label>
-            <input type="text" id="">
-            <input type="button" value="Calcular">
+            <input type="text" id="receita">
+            <input type="button" onclick="questao5()" value="Calcular">
         </div>
         <div class="questao">
-            <h1>Questã 06:<span> Calcular o salário de um funcionário <a
-                        href="https://www.urionlinejudge.com.br/repository/UOJ_1008.html" target="_blank">detalhar</a></span></h1>
-            <p id="">Resultado: O funcionario xxxxxx vai receber xxx.</p>
+            <h1>Questão 06:<span> Calcular o salário de um funcionário <a
+                        href="https://www.urionlinejudge.com.br/repository/UOJ_1008.html"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resultado5">Resultado: O funcionario xxxxxx vai receber xxx.</p>
             <label for="">Nome Funcionário</label>
-            <input type="text" id="">
+            <input type="text" id="nome">
             <label for="">Valor Hora</label>
-            <input type="text" id="">
+            <input type="text" id="valorhora">
             <label for="">Total de Horas Trabalhado</label>
-            <input type="text" id="">
-            <input type="button" value="Calcular">
+            <input type="text" id="totalhoras">
+            <input type="button" onclick="questao6()" value="Calcular">
         </div>
         <div class="questao">
             <h1>Questã 07:<span> Calcular o consumo médio de um automóvel <a
-                        href="https://www.urionlinejudge.com.br/repository/UOJ_1014.html" target="_blank">detalhar</a></span></h1>
-            <p id="">Resultado: O automóvel fez o consumo médio de xxx.</p>
+                        href="https://www.urionlinejudge.com.br/repository/UOJ_1014.html"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resultado6">Resultado: O automóvel fez o consumo médio de xxx.</p>
             <label for="">Distância percorrida</label>
-            <input type="text" id="">
+            <input type="text" id="distancia">
             <label for="">Combustível gasto</label>
-            <input type="text" id="">
-            <input type="button" value="Calcular">
+            <input type="text" id="comb">
+            <input type="button" onclick="questao7()" value="Calcular">
         </div>
     </div>
-    
+
     <script>
         function novo() {
             document.getElementById('nota01').value = '';
@@ -136,113 +138,152 @@
             document.getElementById('nota03').value = '';
         }
 
-          function questao01() {
+        function questao01() {
             let nr1 = document.getElementById("nota01").value;
             let nr2 = document.getElementById("nota02").value;
             let nr3 = document.getElementById("nota03").value;
-            let multpesos=Number(nr1)*2+ Number(nr2)*3+Number(nr3)*5;
-            let somapesos = Number(2)+Number(3)+Number(5);
-            let media=multpesos/somapesos;
-            media =media.toFixed(1);
+            let multpesos = Number(nr1) * 2 + Number(nr2) * 3 + Number(nr3) * 5;
+            let somapesos = Number(2) + Number(3) + Number(5);
+            let media = multpesos / somapesos;
+            media = media.toFixed(1);
             console.log(somapesos);
             console.log(multpesos);
-            document.getElementById('resultado').innerHTML =` A média é de ${media}`;
-                                 
+            document.getElementById('resultado').innerHTML = ` A média é de ${media}`;
 
-          }
-          function questao02() {
-           // let senha = document.getElementById("senha").value;
-          let senha = document.getElementById('senha').value ;
-         
-            if(senha=="2022"){
-
-            document.getElementById('resultado1').innerHTML =` Acesso permitido`;
-
-            return;
-            }else{
-                document.getElementById('resultado1').innerHTML =` Acesso negado`;
-                document.getElementById('senha').value ='';
-            }                    
-
-          }
-          /// verificar float
-          function testafloat(value) {
-          if(/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
-      .test(value))
-       return Number(value);
-       return NaN;
-}
-       function questao03(){
-        document.getElementById('resultado2').innerHTML ='';
-        let intervalo = document.getElementById('intervalo').value; 
-        let  intervalo2=testafloat(intervalo);
-        if (intervalo2 >= 0 && intervalo2 <= 25){
-        document.getElementById('resultado2').innerHTML =` Resultado: O valor ${intervalo2} digitado está no intervalo [0,25]`;
-        }else if (intervalo2 > 25 && intervalo2 <= 50){
-            document.getElementById('resultado2').innerHTML =` Resultado: O valor ${intervalo2} digitado está no intervalo (25,50]`;
-        
-        }else if  (intervalo2 > 50 && intervalo2 <= 75){
-            document.getElementById('resultado2').innerHTML =` Resultado: O valor ${intervalo2} digitado está no intervalo (50,75]`;
-
-
-        }else if (intervalo2 > 75 && intervalo2 <= 100){
-            document.getElementById('resultado2').innerHTML =` Resultado: O valor ${intervalo2} digitado está no intervalo (75,100]`;
-
-
-        }else{
-            document.getElementById('resultado2').innerHTML =` O valor ${intervalo2} está  Fora do Intervalo`;
-        }
-//([0,25], (25,50], (50,75], (75,100])
-
-     }
-     function questao4(){
-        let salario = document.getElementById('salario').value; 
-        let  salario2 =testafloat(salario);
-        let reajuste=0;
-        if (salario2 > 0 && salario2 <= 400.00){
-            reajuste=salario2*0.15;
-            salario2=salario2*1.15;
-            
-
-        document.getElementById('resultado3').innerHTML =` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 15%`;
-        }else if (salario2 >= 400.01 && salario2 <= 800.00){
-            reajuste=salario2*0.12;
-            salario2=salario2*1.12;
-            
-            document.getElementById('resultado3').innerHTML =` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 12%`;
-        
-        }else if  (salario2 >= 800.01 && salario2 <= 1200.00){
-            reajuste=salario2*0.10;
-            salario2=salario2*1.10;    
-                
-            document.getElementById('resultado3').innerHTML =` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 10%`;
-
-
-        }else if (salario2 >= 1200.01 && salario2 <= 2000.00){
-            reajuste=salario2*0.07;
-            salario2=salario2*1.07;    
-                
-            document.getElementById('resultado3').innerHTML =` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 7%`;
-
-        }else if(salario2>2000.00){
-            reajuste=salario2*0.04;
-            salario2=salario2*1.04;    
-                
-            document.getElementById('resultado3').innerHTML =` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 4%`;
-        }else{
-            alert('valor inválido');
 
         }
+        function questao02() {
+            // let senha = document.getElementById("senha").value;
+            let senha = document.getElementById('senha').value;
+
+            if (senha == "2022") {
+
+                document.getElementById('resultado1').innerHTML = ` Acesso permitido`;
+
+                return;
+            } else {
+                document.getElementById('resultado1').innerHTML = ` Acesso negado`;
+                document.getElementById('senha').value = '';
+            }
+
+        }
+        /// verificar float
+        function testafloat(value) {
+            if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
+                .test(value))
+                return Number(value);
+            return NaN;
+        }
+        function questao03() {
+            document.getElementById('resultado2').innerHTML = '';
+            let intervalo = document.getElementById('intervalo').value;
+            let intervalo2 = testafloat(intervalo);
+            if (intervalo2 >= 0 && intervalo2 <= 25) {
+                document.getElementById('resultado2').innerHTML = ` Resultado: O valor ${intervalo2} digitado está no intervalo [0,25]`;
+            } else if (intervalo2 > 25 && intervalo2 <= 50) {
+                document.getElementById('resultado2').innerHTML = ` Resultado: O valor ${intervalo2} digitado está no intervalo (25,50]`;
+
+            } else if (intervalo2 > 50 && intervalo2 <= 75) {
+                document.getElementById('resultado2').innerHTML = ` Resultado: O valor ${intervalo2} digitado está no intervalo (50,75]`;
 
 
-     }
-      
+            } else if (intervalo2 > 75 && intervalo2 <= 100) {
+                document.getElementById('resultado2').innerHTML = ` Resultado: O valor ${intervalo2} digitado está no intervalo (75,100]`;
+
+
+            } else {
+                document.getElementById('resultado2').innerHTML = ` O valor ${intervalo2} está  Fora do Intervalo`;
+            }
+            //([0,25], (25,50], (50,75], (75,100])
+
+        }
+        function questao4() {
+            let salario = document.getElementById('salario').value;
+            let salario2 = testafloat(salario);
+            let reajuste = 0;
+            if (salario2 > 0 && salario2 <= 400.00) {
+                reajuste = salario2 * 0.15;
+                salario2 = salario2 * 1.15;
+
+
+                document.getElementById('resultado3').innerHTML = ` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 15%`;
+            } else if (salario2 >= 400.01 && salario2 <= 800.00) {
+                reajuste = salario2 * 0.12;
+                salario2 = salario2 * 1.12;
+
+                document.getElementById('resultado3').innerHTML = ` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 12%`;
+
+            } else if (salario2 >= 800.01 && salario2 <= 1200.00) {
+                reajuste = salario2 * 0.10;
+                salario2 = salario2 * 1.10;
+
+                document.getElementById('resultado3').innerHTML = ` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 10%`;
+
+
+            } else if (salario2 >= 1200.01 && salario2 <= 2000.00) {
+                reajuste = salario2 * 0.07;
+                salario2 = salario2 * 1.07;
+
+                document.getElementById('resultado3').innerHTML = ` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 7%`;
+
+            } else if (salario2 > 2000.00) {
+                reajuste = salario2 * 0.04;
+                salario2 = salario2 * 1.04;
+
+                document.getElementById('resultado3').innerHTML = ` Resultado: O novo salário ${salario2.toFixed(2)} reajuste :${reajuste.toFixed(2)} :   percentual 4%`;
+            } else {
+                alert('valor inválido');
+
+            }
+
+
+        }
+        function questao5() {
+            let receita = testafloat(document.getElementById('receita').value);
+            let imposto = 0;
+            if (receita >= 0 && receita <= 2000.00) {
+                document.getElementById('resultado4').innerHTML = ` Imposto : ISENTO`;
+            } else if (receita >= 2000.01 && receita <= 3000.00) {
+                imposto = (receita - 2000) * 0.08;
+                document.getElementById('resultado4').innerHTML = ` Imposto:  ${imposto.toFixed(2)}  8% (isenção até 2000)`;
+
+            } else if (receita >= 3000.01 || receita <= 4500.00) {
+                imposto = (receita - 2000) * 0.18;
+                document.getElementById('resultado4').innerHTML = `   Imposto:  ${imposto.toFixed(2)}  18% (isenção até 2000) `;
+
+            } else if (receita > 4500.00) {
+                imposto = (receita - 2000) * 0.28;
+                document.getElementById('resultado4').innerHTML = `   Imposto:  ${imposto.toFixed(2)}  28% (isenção até 2000) `;
+
+            } else {
+                alert('valor inválido');
+
+            }
+
+
+        }
+        function questao6() {
+
+            let valorhora = testafloat(document.getElementById('valorhora').value);
+            let totalhoras = document.getElementById('totalhoras').value;
+            let total_receber = valorhora * totalhoras;
+            document.getElementById('resultado5').innerHTML = `   Resultado: O funcionario ${document.getElementById('nome').value} vai receber  ${total_receber.toFixed(2)}  `;
+
+
+
+        }
+        function questao7() {
+
+
+            let distancia = testafloat(document.getElementById('distancia').value);
+            let comb = testafloat(document.getElementById('comb').value);
+            let consumo = distancia / comb;
+            document.getElementById('resultado6').innerHTML = `   Resultado: O automóvel fez o consumo médio de ${consumo.toFixed(3)} km/l `;
+
+
+        }
 
     </script>
-
-    
-   
 </body>
 
-</html> 
-  !
+</html>
