@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício JS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <style>
+        .flex {
+            max-width: 300px;
+            padding: 10px;
+            border: 2px solid black;
+            background-color: aquamarine;
+            align-self: center;
+        }
+
+        .item {
+            background-color: #0ba2b6a1;
+            padding: 1px 0px 10px 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+
+        }
+
+        body {
+            width: 60%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input {
+            display: block;
+        }
+
+        h5 {
+            font-size: 16px;
+            margin-bottom: 0px;
+            margin-bottom: 6px;
+        }
+    </style>
+    <div class="flex">
+        <h5> Saber se um número é primo</h5>
+        <p id="resultado">Resultado: .</p>
+        <div class="item">
+
+            <label for="">Digite um número positivo:no </label>
+            <a href="https://www.beecrowd.com.br/judge/pt/problems/view/1221" target="_blank">detalhe</a>
+            <input type="text" id="nr">
+            <input type="button" onclick="verificar()" value="Verificar">
+
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var cont = 0;
+        function verificar() {
+            let numero = document.getElementById('nr').value;
+                if (numero > 1 && numero <= Math.pow(2, 31)) {//condição de teste
+                if (cont > 200) { //condição de teste
+
+                    alert("número de testes excedido!");
+                    return;
+
+                } else {
+                    for (let i = 2; i <= numero - 1; i++) {
+                        if (numero % i == 0 && numero!=2 ) {
+                            cont = Number(cont + 1);
+                            document.getElementById('resultado').innerHTML = ` Número ${numero} não é Primo é divisível por ${i} tentativas ${cont}`;
+                            
+                            break;
+                            return;
+
+                        } else if (i = numero - 1 && (numero % i) != 0 ) {
+                            cont = Number(cont + 1);
+                            document.getElementById('resultado').innerHTML = `O Número ${numero} é Primo! tentativas ${cont} `;
+                            return;
+                        }
+
+                    }
+
+                    cont = Number(cont + 1);
+                }
+
+
+            } else {
+
+                alert("número ou valor inválido ! intevalo maior que 1 e menor ou igual a 2.147.483.648");
+                cont = Number(cont + 1);
+            }
+
+        }
+
+    </script>
+
+    
+</body>
+
+</html>
