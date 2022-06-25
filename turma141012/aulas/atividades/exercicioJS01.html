@@ -63,6 +63,7 @@
 
         var cont = 0;
         function verificar() {
+            let contador=2;
             let numero = document.getElementById('nr').value;
                 if (numero > 1 && numero <= Math.pow(2, 31)) {//condição de teste
                 if (cont > 200) { //condição de teste
@@ -71,29 +72,39 @@
                     return;
 
                 } else {
-                    for (let i = 2; i <= numero - 1; i++) {
-                        if (numero % i == 0 && numero!=2 ) {
+                    do{
+                      
+                        if (numero % contador == 0 && contador !=2 ) {
                             cont = Number(cont + 1);
-                            document.getElementById('resultado').innerHTML = ` Número ${numero} não é Primo é divisível por ${i} tentativas ${cont}`;
-                            
+                                  
+                            document.getElementById('resultado').innerHTML = ` Número ${numero} não é Primo é divisível por ${contador} tentativas ${cont}`;
                             break;
                             return;
 
-                        } else if (i = numero - 1 && (numero % i) != 0 ) {
+                        } else if (contador == Number (numero - 1) && (Number(numero-1) % contador) != 0 ) {
+                            cont = Number(cont + 1);
+                            console.log("eu");
+                            console.log(contador);
+                             document.getElementById('resultado').innerHTML = `O Número ${numero} é Primo! tentativas ${cont} `;
+                             break;
+                             return;
+                        }else if (numero==2){
                             cont = Number(cont + 1);
                             document.getElementById('resultado').innerHTML = `O Número ${numero} é Primo! tentativas ${cont} `;
-                            return;
+                            break;
                         }
-
-                    }
+                           contador= Number(contador +1);
+                           console.log(contador);
+                          
+                    }while(contador< Number(numero-1)) ;
 
                     cont = Number(cont + 1);
                 }
-
+                
 
             } else {
 
-                alert("número ou valor inválido ! intevalo maior que 1 e menor ou igual a 2.147.483.648");
+                alert("número ou valor inválido ! intervalo maior que 1 e menor ou igual a 2.147.483.648");
                 cont = Number(cont + 1);
             }
 
