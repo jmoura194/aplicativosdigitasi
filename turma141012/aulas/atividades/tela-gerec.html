@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela gerenciar Perguntas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<style>
+ h2 {
+    text-align: center;
+
+
+}
+
+</style>
+
+
+<body>
+    <div class="container">
+    <h2>Gerenciar Perguntas do Quiz</h2>
+    <form class="form-horizontal">
+            <div class="form-group" >
+            <label class="control-label col-sm-2" for="pergunta">
+                Pergunta:</label>
+             <div class="col-sm-10">
+             <input type="text" class="form-control" id="pergunta" placeholder="digite a pergunta" name="pergunta">
+            </div>
+            </div>
+            <div class="form-group" >
+            <label class="control-label col-sm-2" for="opcao1">
+                Opção 01:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="opcao1" placeholder="digite a opção 01"
+                 name="opcao1">
+               </div>
+            </div>
+            <div class="form-group" >
+               <label class="control-label col-sm-2" for="opcao1">
+                Opção 02:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="opcao2" placeholder="digite a opção 02"
+                 name="opcao2">
+               </div>
+            </div>
+            <div class="form-group" >
+               <label class="control-label col-sm-2" for="opcao3">
+                Opção 03:</label>
+               <div class="col-sm-10">
+                   <input type="text" class="form-control" id="opcao3" placeholder="digite a opção 03"
+                    name="opcao3">
+                  </div>
+                </div>
+                <div class="form-group" >
+                  <label class="control-label col-sm-2" for="opcao4">
+                    Opção 04:</label>
+               <div class="col-sm-10">
+                   <input type="text" class="form-control" id="opcao4" placeholder="digite a opção 04"
+                    name="opcao4">
+                  </div>
+                </div>
+                <div class="form-group" >
+                    <label class="control-label col-sm-2" for="opcaoCorreta">
+                        Opção Correta:</label>
+                 <div class="col-sm-10">
+                     <label class="radio-inline">
+                        <input type="radio" name="opradio" >
+                        Opçao 01
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="opradio" >
+                        Opçao 02
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="opradio" >
+                        Opçao 03
+                     </label>
+                     <label class="radio-inline">
+                        <input type="radio" name="opradio" >
+                        Opçao 04
+                     </label>
+                     
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit"  class="btn btn-default">
+                    Enviar
+                </button>
+            </div>
+    </form>
+</div>
+</body>
+</html>
