@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade JS</title>
+    
+    <style>
+        input[type='text'],
+        select {
+            display: block;
+        }
+    
+        h1 {
+            font-size: 16px;
+            margin-bottom: 0px;
+            margin-bottom: 6px;
+        }
+    
+        span {
+            font-size: 13px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: darkblue;
+        }
+    
+        p {
+            margin: 0px;
+        }
+    
+        body {
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .questao {
+            background-color: #e0f7faa1;
+            padding: 1px 0px 10px 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    
+        .questao:hover {
+            background-color: #e0f7fa;
+        }
+    
+        input[type='button'] {
+            margin-top: 10px;
+        }
+    
+        .mao {
+            font-size: 30px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    
+        .adversario {
+            font-size: 50px;
+    
+        }
+    </style>   
+</head>
+
+
+<body>
+    <div id="corpo">
+        <div class="questao">
+            <h1>
+                Questã 01:<span>Tabuada
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <input type="text" id="nr_tab" style="display: inline">
+            <input type="button" onclick="tabuada()" value="Calcular">
+            <p id="resultado1">Resultado: <br>N x 1 = NX<br>N x 2 = NX<br>...<br>N x 10 = NX<br></p>
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 02:<span>Mostrar os números entre 2 valores
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultado2">Resultado: Os número entre A e Z são (x,x,x,x,x).</p>
+            <label for="">Valor 01:</label>
+            <input type="text" id="n1">
+            <label for="">Valor 02:</label>
+            <input type="text" id="n2">
+            <input type="button" onclick="intervalo()" value="Executar">
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 03:<span>
+                    Lista armazenada
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultado3">Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]</p>
+            <label for="">Item:</label>
+            <input type="text" id="item">
+            <input type="button" value="Add" onclick=" contador=adicionar(contador)">
+            <input type="button" value="Show" onclick="mostrar()">
+            <input type="button" value="Clear" onclick="apagar()">
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 04:<span>Mega SENA
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultado4">Resultado:00,00,00,00,00,00</p>
+            <input type="button" value="Sortear!" onclick="sortear()">
+        </div>
+        <div class="questao">
+            <h1>
+                Questã 05:<span>
+                    Lista homens e mulheres
+                    <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="resultado5">
+                Resultado: <br>Lista de homens [xxxx,xxxx,xxxx,xxxxx] <br>Lista de
+                mulheres [xxxx,xxxx,xxxx,xxxxx]
+            </p>
+            <label for="">Nome:</label>
+            <input type="text" id="nome">
+            <label for="">Sexo:</label>
+            <select name="sexo" id="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+            <input type="button" value="Add" onclick=" cont1=add(cont1)">
+            <input type="button" value="Show" onclick="apresentar(cadastro)">
+            <input type="button" value="Clear" onclick="limpar2()">
+        </div>
+        <div class="questao">
+            <h1>
+                DESAFIOO!:<span>
+                    Jo-Ken-Po <a href="detalhes.html" target="_blank">detalhar</a></span>
+            </h1>
+            <p id="">Resultado: [Vitótio|Derrota|Empate]</p>
+            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'" class="mao">✊🏽</span>
+            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'" class="mao">🖐🏽</span>
+            <span onmouseover="this.style.fontSize = '50px'" onmouseout="this.style.fontSize = '30px'" class="mao">✌🏽</span>
+            #
+            <span class="adversario">👋🏽</span>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+   var tipo_Array =new Array ();
+   var mega_Array =new Array ();
+   let contador=0;
+   let cont1=0;
+  
+    let tabuada1= {
+    valores: [1, 2, 3, 4,5,6,7,8,9,10,11],
+    numeros:[0,1,2,3,4,5,6,7,8,9,10]
+    
+    
+};
+let intervalos={
+    numeros:[]
+
+};
+
+    function tabuada(){
+        let  tabuada2= new Array(10);
+        let numero = document.getElementById('nr_tab').value;
+        let m=0,i=0;
+      
+        document.getElementById('resultado1').innerHTML = ` Tabuada de ${numero}<br>`;
+       for(i=0;i<=10;i++){//carrega os valores
+        m=i*numero;
+       
+       /// resul= document.getElementById('resultado1').innerHTML = `  ${numero} x ${i} = ${m}<br>`;
+        tabuada1.valores[i]='<br>'+numero+ " x "+ i + "="+ m;
+     
+
+       }
+      
+       document.getElementById('resultado1').innerHTML =   
+       `${tabuada1.valores} `;
+      
+       
+    }
+    function carregar(){
+        let n1= document.getElementById('n1').value;
+        let n2= document.getElementById('n2').value;
+        let intervalo =n2-n1;
+        let primeiro=n1;
+      if(Number(n1)!=0 || Number(n1)!=0  || isNaN(n1) || isNaN(n2) || n1 !="" || n2!=0 ){
+        var nr_Array =new Array (intervalo-1);
+        for(i=0;i<intervalo-1;i++){
+            
+           // console.log(nr_Array[i]);
+          ///  console.log(intervalo);
+            
+            intervalos.numeros[i]=nr_Array[i]=Number(n1)+Number(1);
+            n1= Number(n1)+1;
+
+        }
+        document.getElementById('resultado2').innerHTML =   
+       `Os números entre ${primeiro} e ${n2} são ${intervalos.numeros} `;
+       
+        
+
+      }
+     
+
+
+
+    }
+    
+    function intervalo(){
+        let n1= document.getElementById('n1').value;
+        let n2= document.getElementById('n2').value;
+        let intervalo =n2-n1;
+        let i=0;
+          //verificação e validação
+       if(Number (n1) >Number(n2) || Number(n1) < Number(0) || n2 < 0 || Number(intervalo)==1){
+        ///console.log(n1,n2);
+        ////console.log(intervalo);
+         alert("números inválidos!ou intervalo não existe");
+         document.getElementById('n1').value="";
+         document.getElementById('n2').value="";
+         return;
+
+       }else if (isNaN(n1) || isNaN(n2)) {//verifica se digitou um valor inválido letra ...etc
+        alert("valores inválidos!!");
+        document.getElementById('n1').value="";
+        document.getElementById('n2').value="";
+         return;
+       }else {
+        
+       carregar();
+
+        }
+
+       
+
+       }
+       
+        function adicionar(cont){
+        
+         tipo_Array[cont]=document.getElementById('item').value;
+         cont=contador+1;
+         document.getElementById("item").value="";
+         
+         return cont;
+
+        }
+        function mostrar(){
+            
+            if(tipo_Array.length==0){
+                document.getElementById("resultado3").innerHTML = "Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]";
+                return;
+            }else{
+            const myArray = tipo_Array.valueOf();
+            
+           document.getElementById("resultado3").innerHTML = "Resultado: A lista de itens é <br>"+ myArray;
+
+            }
+
+
+        }
+        function apagar(){
+            document.getElementById("item").value="";
+            for (i=0;i<=tipo_Array.length-1;i++){
+                delete tipo_Array[i];
+             }
+            tipo_Array.length=0;
+            document.getElementById("resultado3").innerHTML = "Resultado: A lista de itens é [xxxx,xxxx,xxxx,xxxxx]";
+       
+
+    }
+    function sortear(){
+
+        for(i=0;i<6;i++){
+
+          mega_Array[i]=Math.floor(Math.random() * 60) + 1;
+        }
+        const mega = mega_Array.valueOf();
+            
+           document.getElementById("resultado4").innerHTML = "Resultado: "+ mega;
+
+    }
+    
+    let cadastro  =[ 
+         [,],
+              
+    
+    ];
+    let lista_fem=[{
+       nome :[]
+       
+
+
+    }];
+    
+    
+function add(cont2){
+    
+       
+    cadastro[cont2]=([document.getElementById("nome").value,document.getElementById("sexo").value]);
+    document.getElementById("nome").value="";
+    document.getElementById("sexo").value="";
+    cont2=cont1+1;
+    console.table(cadastro);
+    console.log(cadastro);
+    console.log(cont2);
+    console.log(cont1);
+    return cont2;
+    
+
+}
+let cont_fem=0;
+
+function apresentar(cadastro){
+    j=0;
+   
+    for (let i = 0; i <=cadastro.length-1 ; i++) {
+         if((cadastro[i,j])=='F'){
+          cont_fem=cont_fem+1;
+
+         }
+            console.log(cadastro[i]);
+      
+}
+
+}
+</script>
+</html>
+
+<!--questão2
+    mostrar os números entre 2 valores
+A funcionalidade deve receber 2 números e escrever todos os números entre eles.
+•	Exemplo.
+•	Entrada: N1 = 7, N2 = 13
+•	Saída: 7,8,9,10,11,12,13
+
+Questão 03
+Lista armazenada
+•	O botão “Add” deve adicionar o item em um array;
+•	O botão “Show” deve mostrar todos os itens;
+•	O botão “Clear” deve limpar o array e apagar o que foi apresentado.
+Questão 04
+        Ao clicar no botão sortear o sistema vai gerar 6 números aleatório entre 1 e 60, e mostra-los.
+    
+Questão 05
+Lista homens e mulheres
+•	O botão “Add” deve adicionar uma nova pessoa;
+•	O botão “Show” deve mostrar de forma separada os homens das mulheres;
+•	O botão “Clear” deve limpar e apagar o que foi apresentado.
+-->
