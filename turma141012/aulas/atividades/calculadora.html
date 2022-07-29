@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .flex-container{
+
+            display: flex;
+            border: 2px solid black;
+            max-width: 300px;
+            max-height: 800px;
+            line-height: 50px;
+            margin-left: 350px;
+            margin-top: 10%;
+            background-color: yellow;
+            border: 2px solid black ;
+            border-radius: 10px;
+           
+            text-align: center;
+            
+        }
+        .default{
+            flex-flow: row nowrap;
+        }
+        button {
+            margin: 5px;
+            text-align: center;
+            color: white;
+            width: 50px;
+            height: 50px;
+            line-height: 60px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: black;
+            cursor :pointer;
+            margin-left: 15px;
+            font-size: large;
+           margin-bottom: 5px;
+
+        }
+        .wrap{
+
+            flex-wrap: wrap;
+        }
+       
+       #tela{
+          background-color: black;
+          margin-top: 10px; 
+          border-radius: 5px;
+          width: 280px;
+          height: 100px;
+          margin-left: 5px;
+          
+          text-align: right;
+          font-size: 100px;
+          font-family: Arial, Helvetica, sans-serif;
+          color: white;
+           
+
+       }
+       h1 {
+            text-align: center;
+        }
+                 
+        .button :hover{
+            background-color:#006000;
+            box-shadow:0 5px 0 #3f0000;
+            
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <div class="class flex-container wrap">
+        <input type="text" id="tela">
+         <br>
+         <div class="button">
+    <button id="limpar">CE</button>
+    <button onclick="">C</button>
+    <button><<</button>
+    <button id="\" value="\">\</button>
+    <button id="7" value="7">7</button>
+    <button id="8" value="8" onclick="">8</button>
+    <button id="9" value="9">9</button>
+    <button id="*" value="*">*</button>
+    <button id="4" value="4">4</button>
+    <button id="5" value="5" onclick="">5</button>
+    <button id="6" value="6" >6</button>
+    <button id="-" value="-">-</button>
+    <button id="1" value="1">1</button>
+    <button id="2"value="2" onclick="">2</button>
+    <button id="3" value="3" >3</button>
+    <button id="+" value="+">+</button>
+    <button id="trocarsinal" value="+-">+-</button>
+    <button id="0" value="0" onclick="captura()">0</button>
+    <button id="." value=".">.</button>
+    <button id="=" value="=">=</button>
+
+    </div>
+    
+</body>
+</html>
+<script>
+    
+      
+     
+     let novoNr=true;
+    document.querySelectorAll("button").forEach( function(button) {
+    
+    button.addEventListener("click", function(event) {
+    const el = event.target || event.srcElement;
+    const id = el.id;
+    console.log(id);
+    atualizarDisplay(id);
+
+    ///document.getElementById('tela').value +=id;
+  });
+  
+});
+
+function atualizarDisplay(id){
+   
+if(novoNr){
+    document.getElementById('tela').value =id;
+    novoNr=false;
+
+
+}else{
+    document.getElementById('tela').value +=id;
+
+
+}
+
+   
+
+}
+</script>
