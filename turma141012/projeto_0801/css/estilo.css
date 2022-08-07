@@ -1,0 +1,50 @@
+body{
+
+    background-color: rgb(231, 219,214) ;
+}
+
+
+img{
+
+ border-radius: 50%;
+  height: 100px;
+  width: 100px;
+ /* border: #e66b6b solid 2px;*/
+  box-shadow: 0px 0px 20px #000000;
+  
+  
+}
+p{
+    background-color: rgb(247,234,239);
+    position: absolute;
+    top: 0%;
+    left: 80px;
+    width: 400px;
+    height: 73px;
+    z-index: -1;
+    padding-left: 40px;
+    padding-top: 10px;
+    border-radius: 5%;
+    font-family: "Lucida Handwriting","Lucida Console";
+    border: #e66b6b solid 2px;
+    box-shadow: 0px 0px 5px #000000;
+
+}
+.valor{
+
+    text-align: right;
+    margin-right: 10px;
+    float: right;
+    background-color: #0000007d;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-family: "Lucida Handwriting","Lucida Console";
+}
+
+.carrinho{
+
+    color: #e66b6b;
+    cursor: pointer;
+    font-size: 40px;
+}
